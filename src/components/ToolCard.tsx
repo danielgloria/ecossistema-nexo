@@ -12,13 +12,17 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
 
   return (
     <button
-      onClick={onClick}
+      onClick={isActive ? onClick : undefined}
+      disabled={!isActive}
       className={cn(
-        "flex flex-col items-center gap-2 rounded-2xl bg-card p-5 w-[160px] shadow-md",
-        "transition-all duration-300 cursor-pointer border border-transparent",
-        "hover:-translate-y-1 hover:shadow-lg",
-        isActive && "hover:border-secondary",
-        !isActive && "opacity-75 hover:opacity-100"
+        "flex flex-col items-center gap-2 rounded-2xl bg-card p-5 w-[160px] shadow-sm",
+        "transition-all duration-300 border border-transparent",
+        isActive && [
+          "cursor-pointer",
+          "hover:-translate-y-1 hover:shadow-xl hover:border-secondary/30",
+          "hover:bg-white/70 hover:backdrop-blur-md",
+        ],
+        !isActive && "opacity-60 cursor-not-allowed"
       )}
     >
       <div className="text-primary [&_svg]:stroke-[1.5]">{icon}</div>
@@ -26,7 +30,7 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
         {name}
       </span>
       {!isActive && (
-        <span className="inline-block text-[11px] text-muted-foreground bg-muted px-2.5 py-0.5 rounded-full">
+        <span className="inline-block text-[11px] text-muted-foreground bg-muted px-3 py-1 rounded-full font-medium">
           EM BREVE
         </span>
       )}
