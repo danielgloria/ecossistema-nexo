@@ -23,9 +23,6 @@ const tools = [
   { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)" },
 ];
 
-// Row 1: REDATOR, SBAR, LÍDER
-// Row 2: VIGILÂNCIA, CUIDAR, CONFORMIDADE
-
 const Index = () => {
   const [ecosystemOpen, setEcosystemOpen] = useState(false);
 
@@ -41,117 +38,64 @@ const Index = () => {
   const bottomRow = tools.slice(3, 6);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <DotGridBackground />
 
       {/* Headline */}
       <div className="relative z-10 text-center mb-12">
-        <h1 className="text-[28px] font-bold text-[#1B2A4A]">
+        <h1 className="text-[28px] font-bold text-[#1B2A4A]" style={{ fontFamily: "'Montserrat', sans-serif" }}>
           Ecossistema NEXO SAÚDE
         </h1>
-        <p className="text-[16px] text-[#5A6878] mt-2 italic">
+        <p className="text-[16px] text-[#5A6878] mt-2 italic font-normal" style={{ fontFamily: "'Montserrat', sans-serif" }}>
           Inteligência conectada para o cuidado em saúde.
         </p>
       </div>
 
       {/* Mobile layout */}
-      <div className="relative z-10 flex flex-col items-center gap-6 px-6 lg:hidden">
-        <button
-          onClick={() => setEcosystemOpen(true)}
-          className="relative flex flex-col items-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
-        >
-          <HaloRing />
-          <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
-            <NetworkSphere />
-          </div>
-          <h2 className="text-5xl font-extrabold uppercase text-primary tracking-tight">NEXO</h2>
-          <p className="text-2xl font-light uppercase text-primary tracking-[5px]">SAÚDE</p>
-        </button>
-        <div className="grid grid-cols-2 gap-4">
+      <div className="relative z-10 flex flex-col items-center gap-6 px-6 md:hidden">
+        <CenterHub onClick={() => setEcosystemOpen(true)} />
+        <div className="flex flex-col items-center gap-4">
           {tools.map((tool, i) => (
             <div
               key={tool.name}
               className="animate-[cardFadeIn_0.5s_ease-out_both]"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div>
-                      <ToolCard {...tool} onClick={() => handleClick(tool)} />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" className="bg-white text-[#1B2A4A] text-sm shadow-lg border border-slate-200 px-4 py-2 rounded-xl">
-                    {tool.tooltip}
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
             </div>
           ))}
         </div>
       </div>
 
       {/* Desktop grid layout */}
-      <div className="hidden lg:flex flex-col items-center gap-0 relative z-10">
+      <div className="hidden md:flex flex-col items-center relative z-10">
         {/* Top row */}
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center justify-center gap-8">
           {topRow.map((tool, i) => (
             <div
               key={tool.name}
               className="animate-[cardFadeIn_0.5s_ease-out_both]"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div>
-                      <ToolCard {...tool} onClick={() => handleClick(tool)} />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" className="bg-white text-[#1B2A4A] text-sm shadow-lg border border-slate-200 px-4 py-2 rounded-xl">
-                    {tool.tooltip}
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
             </div>
           ))}
         </div>
 
         {/* Central sphere */}
-        <div className="relative my-6 flex items-center justify-center">
-          <HaloRing />
-          <button
-            onClick={() => setEcosystemOpen(true)}
-            className="relative flex flex-col items-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none z-10"
-          >
-            <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
-              <NetworkSphere />
-            </div>
-            <h2 className="text-5xl font-extrabold uppercase text-primary tracking-tight">NEXO</h2>
-            <p className="text-2xl font-light uppercase text-primary tracking-[5px]">SAÚDE</p>
-          </button>
+        <div className="relative my-8">
+          <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
         {/* Bottom row */}
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center justify-center gap-8">
           {bottomRow.map((tool, i) => (
             <div
               key={tool.name}
               className="animate-[cardFadeIn_0.5s_ease-out_both]"
               style={{ animationDelay: `${(i + 3) * 100}ms` }}
             >
-              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div>
-                      <ToolCard {...tool} onClick={() => handleClick(tool)} />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" className="bg-white text-[#1B2A4A] text-sm shadow-lg border border-slate-200 px-4 py-2 rounded-xl">
-                    {tool.tooltip}
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
             </div>
           ))}
         </div>
@@ -166,12 +110,46 @@ const Index = () => {
   );
 };
 
-const HaloRing = () => (
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-    <div
-      className="w-[360px] h-[360px] rounded-full bg-[#5BC5A7]/[0.08] animate-[haloPulse_4s_ease-in-out_infinite]"
-    />
+const CenterHub = ({ onClick }: { onClick: () => void }) => (
+  <div className="relative flex items-center justify-center">
+    {/* Halo */}
+    <div className="absolute w-[360px] h-[360px] rounded-full bg-[#5BC5A7]/[0.08] animate-[haloPulse_4s_ease-in-out_infinite] pointer-events-none" />
+    <button
+      onClick={onClick}
+      className="relative flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none z-10"
+    >
+      <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
+        <NetworkSphere />
+      </div>
+      <h2
+        className="text-[48px] md:text-[64px] uppercase text-[#1B2A4A] leading-none"
+        style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 900, letterSpacing: "-1px" }}
+      >
+        NEXO
+      </h2>
+      <p
+        className="text-[22px] md:text-[28px] uppercase text-[#1B2A4A] leading-none mt-1"
+        style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300, letterSpacing: "8px" }}
+      >
+        SAÚDE
+      </p>
+    </button>
   </div>
+);
+
+const CardWithTooltip = ({ tool, onClick }: { tool: typeof tools[0]; onClick: () => void }) => (
+  <TooltipProvider delayDuration={100}>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <div>
+          <ToolCard {...tool} onClick={onClick} />
+        </div>
+      </TooltipTrigger>
+      <TooltipContent side="bottom" className="bg-white text-[#1B2A4A] text-sm shadow-lg border border-slate-200 px-4 py-2 rounded-xl">
+        {tool.tooltip}
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
 );
 
 export default Index;
