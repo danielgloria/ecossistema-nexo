@@ -57,13 +57,14 @@ const Index = () => {
       </div>
 
       {/* Desktop orbital layout */}
-      <div className="hidden md:block relative z-10" style={{ width: 700, height: 700 }}>
+      <div className="hidden md:block relative z-10" style={{ width: 900, height: 820, margin: '40px auto 80px auto' }}>
         {/* Dashed orbit ring */}
         <svg
-          className="absolute inset-0 pointer-events-none animate-[orbitSpin_60s_linear_infinite] motion-reduce:animate-none"
-          width="700" height="700" viewBox="0 0 700 700"
+          className="absolute pointer-events-none animate-[orbitSpin_60s_linear_infinite] motion-reduce:animate-none"
+          style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 760, height: 760, zIndex: 1 }}
+          viewBox="0 0 760 760"
         >
-          <circle cx="350" cy="350" r="280" fill="none" stroke="#1B2A4A" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.4" />
+          <circle cx="380" cy="380" r="370" fill="none" stroke="#1B2A4A" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.4" />
         </svg>
 
         {/* Central logo */}
