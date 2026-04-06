@@ -15,12 +15,12 @@ import EcosystemModal from "@/components/EcosystemModal";
 const iconProps = { size: 40, strokeWidth: 1.75, color: "#1B2A4A" };
 
 const tools = [
-  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://www.nexosaude.med.br/", tooltip: "Documentos institucionais", top: 60, left: 260 },
-  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada", top: 200, left: 502 },
-  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", top: 480, left: 502 },
-  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", top: 620, left: 260 },
-  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)", top: 480, left: 18 },
-  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", top: 200, left: 18 },
+  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://www.nexosaude.med.br/", tooltip: "Documentos institucionais", top: 30, left: 360 },
+  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada", top: 220, left: 680 },
+  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", top: 590, left: 680 },
+  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", top: 680, left: 360 },
+  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)", top: 590, left: 40 },
+  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", top: 220, left: 40 },
 ];
 
 const Index = () => {
@@ -57,13 +57,14 @@ const Index = () => {
       </div>
 
       {/* Desktop orbital layout */}
-      <div className="hidden md:block relative z-10" style={{ width: 700, height: 700 }}>
+      <div className="hidden md:block relative z-10" style={{ width: 900, height: 820, margin: '40px auto 80px auto' }}>
         {/* Dashed orbit ring */}
         <svg
-          className="absolute inset-0 pointer-events-none animate-[orbitSpin_60s_linear_infinite] motion-reduce:animate-none"
-          width="700" height="700" viewBox="0 0 700 700"
+          className="absolute pointer-events-none animate-[orbitSpin_60s_linear_infinite] motion-reduce:animate-none"
+          style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 760, height: 760, zIndex: 1 }}
+          viewBox="0 0 760 760"
         >
-          <circle cx="350" cy="350" r="280" fill="none" stroke="#1B2A4A" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.4" />
+          <circle cx="380" cy="380" r="370" fill="none" stroke="#1B2A4A" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.4" />
         </svg>
 
         {/* Central logo */}
