@@ -65,7 +65,7 @@ const Index = () => {
         />
 
         {/* Central logo */}
-        <div className="absolute z-10" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 220, textAlign: 'center' }}>
+        <div className="absolute z-10 flex flex-col items-center justify-center" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 320, textAlign: 'center' as const }}>
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
