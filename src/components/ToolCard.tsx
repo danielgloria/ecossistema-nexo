@@ -15,7 +15,7 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
       onClick={isActive ? onClick : undefined}
       disabled={!isActive}
       className={cn(
-        "flex flex-col items-center gap-2 rounded-2xl bg-card p-5 w-[160px] shadow-sm",
+        "flex flex-col items-center gap-2 rounded-2xl bg-card p-5 w-[160px] shadow-lg shadow-slate-200/50",
         "transition-all duration-300 border border-transparent",
         isActive && [
           "cursor-pointer",
