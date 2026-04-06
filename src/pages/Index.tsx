@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PenTool, ShieldCheck, Landmark, Lock, Stethoscope, Workflow } from "lucide-react";
+import { PenTool, ShieldCheck, Users, ScrollText, HandHeart, Eye } from "lucide-react";
 import { toast } from "sonner";
 import {
   Tooltip,
@@ -11,13 +11,15 @@ import NetworkSphere from "@/components/NetworkSphere";
 import ToolCard from "@/components/ToolCard";
 import EcosystemModal from "@/components/EcosystemModal";
 
+const iconProps = { size: 40, strokeWidth: 1.75, color: "#1B2A4A" };
+
 const tools = [
-  { name: "NEXO REDATOR", icon: <PenTool size={36} />, status: "active" as const, url: "https://nexo-redator.example.com" },
-  { name: "NEXO SBAR", icon: <ShieldCheck size={36} />, status: "active" as const, url: "https://nexo-sbar.example.com" },
-  { name: "NEXO GOVERNANÇA", icon: <Landmark size={36} />, status: "coming_soon" as const, url: "" },
-  { name: "NEXO CUIDADO", icon: <Lock size={36} />, status: "coming_soon" as const, url: "" },
-  { name: "NEXO LINHA DE CUIDADO", icon: <Stethoscope size={36} />, status: "coming_soon" as const, url: "" },
-  { name: "NEXO TRILHA DE ATENDIMENTO", icon: <Workflow size={36} />, status: "coming_soon" as const, url: "" },
+  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://nexo-redator.example.com" },
+  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://nexo-sbar.example.com" },
+  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "active" as const, url: "https://nexo-lider.example.com" },
+  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "active" as const, url: "https://nexo-conformidade.example.com" },
+  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "active" as const, url: "https://nexo-cuidar.example.com" },
+  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "active" as const, url: "https://nexo-vigilancia.example.com" },
 ];
 
 const RADIUS = 250;
