@@ -14,7 +14,7 @@ const tools = [
   { name: "NEXO REDATOR", icon: <PenTool size={36} />, status: "active" as const, description: "Ferramenta de redação inteligente para documentos clínicos e relatórios hospitalares." },
   { name: "NEXO SBAR", icon: <ShieldCheck size={36} className="text-primary [&>path:last-child]:text-secondary" />, status: "active" as const, description: "Comunicação estruturada SBAR para passagem de plantão e handoff clínico." },
   { name: "NEXO GOVERNANÇA", icon: <Landmark size={36} />, status: "coming_soon" as const, description: "" },
-  { name: "NEXO SEGURANÇA", icon: <Lock size={36} />, status: "coming_soon" as const, description: "" },
+  { name: "NEXO CUIDADO", icon: <Lock size={36} />, status: "coming_soon" as const, description: "" },
   { name: "NEXO LINHA DE CUIDADO", icon: <Stethoscope size={36} />, status: "coming_soon" as const, description: "" },
   { name: "NEXO TRILHA DE ATENDIMENTO", icon: <Workflow size={36} />, status: "coming_soon" as const, description: "" },
 ];
