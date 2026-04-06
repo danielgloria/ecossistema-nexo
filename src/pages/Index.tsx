@@ -60,14 +60,14 @@ const Index = () => {
         />
 
         {/* Central logo */}
-        <div className="absolute z-10 flex flex-col items-center justify-center" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 320, textAlign: 'center' as const }}>
+        <div className="absolute z-10 flex flex-col items-center justify-center" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%) translateY(-50px)', width: 420, textAlign: 'center' as const }}>
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
         {/* Tagline */}
         <div
           className="absolute pointer-events-none text-center"
-          style={{ top: 'calc(50% + 170px)', left: '50%', transform: 'translateX(-50%)', width: 280, fontSize: 13, fontWeight: 400, color: '#5A6878', lineHeight: 1.5, zIndex: 2 }}
+          style={{ top: 'calc(50% + 130px)', left: '50%', transform: 'translateX(-50%)', width: 320, fontSize: 14, fontWeight: 400, color: '#5A6878', lineHeight: 1.5, zIndex: 2 }}
         >
           O ecossistema onde análises precisas geram decisões de excelência.
         </div>
@@ -101,6 +101,8 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
       <img src={logoIcon} alt="NEXO SAÚDE" className="w-[240px] h-[240px] object-contain block mx-auto" />
     </div>
+    <h2 className="uppercase text-[#1B2A4A] leading-none mt-5 text-center" style={{ fontWeight: 900, fontSize: 84, letterSpacing: "-2px" }}>NEXO</h2>
+    <p className="uppercase text-[#1B2A4A] leading-none mt-2 text-center" style={{ fontWeight: 300, fontSize: 32, letterSpacing: "14px" }}>SAÚDE</p>
   </button>
 );
 
