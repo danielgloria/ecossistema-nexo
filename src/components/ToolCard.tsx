@@ -21,12 +21,14 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
         !isActive && "opacity-75 hover:opacity-100"
       )}
     >
-      <div className="text-primary">{icon}</div>
+      <div className="text-primary [&_svg]:stroke-[1.5]">{icon}</div>
       <span className="text-xs font-bold uppercase tracking-wide text-primary text-center leading-tight">
         {name}
       </span>
       {!isActive && (
-        <span className="text-[11px] text-muted-foreground">(EM BREVE)</span>
+        <span className="inline-block text-[11px] text-muted-foreground bg-muted px-2.5 py-0.5 rounded-full">
+          EM BREVE
+        </span>
       )}
     </button>
   );

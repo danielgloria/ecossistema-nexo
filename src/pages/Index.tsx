@@ -6,27 +6,22 @@ import {
   DialogDescription, DialogFooter, DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import HexBackground from "@/components/HexBackground";
+import DotGridBackground from "@/components/DotGridBackground";
 import NetworkSphere from "@/components/NetworkSphere";
 import ToolCard from "@/components/ToolCard";
 
 const tools = [
   { name: "NEXO REDATOR", icon: <PenTool size={36} />, status: "active" as const, description: "Ferramenta de redação inteligente para documentos clínicos e relatórios hospitalares." },
-  { name: "NEXO SBAR", icon: <ShieldCheck size={36} className="text-primary [&>path:last-child]:text-secondary" />, status: "active" as const, description: "Comunicação estruturada SBAR para passagem de plantão e handoff clínico." },
+  { name: "NEXO SBAR", icon: <ShieldCheck size={36} />, status: "active" as const, description: "Comunicação estruturada SBAR para passagem de plantão e handoff clínico." },
   { name: "NEXO GOVERNANÇA", icon: <Landmark size={36} />, status: "coming_soon" as const, description: "" },
   { name: "NEXO CUIDADO", icon: <Lock size={36} />, status: "coming_soon" as const, description: "" },
   { name: "NEXO LINHA DE CUIDADO", icon: <Stethoscope size={36} />, status: "coming_soon" as const, description: "" },
   { name: "NEXO TRILHA DE ATENDIMENTO", icon: <Workflow size={36} />, status: "coming_soon" as const, description: "" },
 ];
 
-const orbitalPositions = [
-  "lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-[220px] lg:-translate-y-[20px]",
-  "lg:absolute lg:top-0 lg:left-1/2 lg:translate-x-[60px] lg:-translate-y-[20px]",
-  "lg:absolute lg:top-1/2 lg:left-0 lg:-translate-x-[30px] lg:-translate-y-1/2",
-  "lg:absolute lg:top-1/2 lg:right-0 lg:translate-x-[30px] lg:-translate-y-1/2",
-  "lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-[220px] lg:translate-y-[20px]",
-  "lg:absolute lg:bottom-0 lg:left-1/2 lg:translate-x-[60px] lg:translate-y-[20px]",
-];
+// 6 cards equally spaced on a circle (radius 280px from center)
+const RADIUS = 280;
+const angleOffsets = [-90, -30, 30, 90, 150, 210]; // degrees, starting from top
 
 const Index = () => {
   const [dialogTool, setDialogTool] = useState<typeof tools[0] | null>(null);
@@ -41,7 +36,7 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <HexBackground />
+      <DotGridBackground />
 
       {/* Mobile layout */}
       <div className="relative z-10 flex flex-col items-center gap-8 p-6 lg:hidden">
@@ -58,7 +53,7 @@ const Index = () => {
       </div>
 
       {/* Desktop orbital layout */}
-      <div className="hidden lg:block relative w-[700px] h-[550px]">
+      <div className="hidden lg:block relative" style={{ width: RADIUS * 2 + 200, height: RADIUS * 2 + 200 }}>
         {/* Center logo */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10">
           <NetworkSphere />
@@ -66,12 +61,25 @@ const Index = () => {
           <p className="text-2xl font-normal uppercase text-primary tracking-[0.25em]">SAÚDE</p>
         </div>
 
-        {/* Orbital cards */}
-        {tools.map((tool, i) => (
-          <div key={tool.name} className={orbitalPositions[i]}>
-            <ToolCard {...tool} onClick={() => handleClick(tool)} />
-          </div>
-        ))}
+        {/* Orbital cards on a perfect circle */}
+        {tools.map((tool, i) => {
+          const angle = (angleOffsets[i] * Math.PI) / 180;
+          const x = Math.cos(angle) * RADIUS;
+          const y = Math.sin(angle) * RADIUS;
+          return (
+            <div
+              key={tool.name}
+              className="absolute"
+              style={{
+                top: "50%",
+                left: "50%",
+                transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+              }}
+            >
+              <ToolCard {...tool} onClick={() => handleClick(tool)} />
+            </div>
+          );
+        })}
       </div>
 
       {/* Dialog for active tools */}
