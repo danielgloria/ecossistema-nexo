@@ -41,7 +41,8 @@ const Index = () => {
           onClick={() => setEcosystemOpen(true)}
           className="relative flex flex-col items-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
         >
-          <div className="absolute w-96 h-96 bg-[#52c49c]/10 blur-3xl rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute w-[28rem] h-[28rem] bg-[#52c49c]/8 blur-[120px] rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute w-64 h-64 bg-[#1B2A4A]/5 blur-[100px] rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           <NetworkSphere />
           <h1 className="text-5xl font-extrabold uppercase text-primary tracking-tight">NEXO</h1>
           <p className="text-2xl font-normal uppercase text-primary tracking-[0.25em]">SAÚDE</p>

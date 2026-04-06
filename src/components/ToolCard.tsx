@@ -15,12 +15,12 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
       onClick={isActive ? onClick : undefined}
       disabled={!isActive}
       className={cn(
-        "flex flex-col items-center gap-2 rounded-2xl bg-card p-5 w-[160px] shadow-lg shadow-slate-200/50",
-        "transition-all duration-300 border border-transparent",
+        "flex flex-col items-center gap-2 rounded-2xl bg-white p-5 w-[160px]",
+        "shadow-[0_2px_8px_0_rgba(30,41,59,0.18)] border border-slate-100",
+        "transition-all duration-300",
         isActive && [
           "cursor-pointer",
-          "hover:-translate-y-1 hover:shadow-xl hover:border-secondary/30",
-          "hover:bg-white/70 hover:backdrop-blur-md",
+          "hover:-translate-y-0.5 hover:shadow-[0_4px_16px_0_rgba(30,41,59,0.22)]",
         ],
         !isActive && "opacity-60 cursor-not-allowed"
       )}
