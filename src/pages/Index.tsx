@@ -15,13 +15,16 @@ import EcosystemModal from "@/components/EcosystemModal";
 const iconProps = { size: 40, strokeWidth: 1.75, color: "#1B2A4A" };
 
 const tools = [
-  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://www.nexosaude.med.br/", tooltip: "Documentos institucionais" },
-  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada" },
-  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)" },
-  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)" },
-  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)" },
-  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)" },
+  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://www.nexosaude.med.br/", tooltip: "Documentos institucionais", angle: 270 },
+  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada", angle: 330 },
+  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", angle: 30 },
+  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", angle: 90 },
+  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)", angle: 150 },
+  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", angle: 210 },
 ];
+
+const ORBIT_RADIUS = 280;
+const CONTAINER_SIZE = 700;
 
 const Index = () => {
   const [ecosystemOpen, setEcosystemOpen] = useState(false);
@@ -34,15 +37,12 @@ const Index = () => {
     }
   };
 
-  const topRow = tools.slice(0, 3);
-  const bottomRow = tools.slice(3, 6);
-
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <DotGridBackground />
 
       {/* Headline */}
-      <div className="relative z-10 text-center mb-10">
+      <div className="relative z-10 text-center mb-8">
         <h1 className="text-[28px] font-bold text-[#1B2A4A]">
           Ecossistema NEXO SAÚDE
         </h1>
@@ -54,7 +54,7 @@ const Index = () => {
       {/* Mobile layout */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 md:hidden">
         <CenterHub onClick={() => setEcosystemOpen(true)} />
-        <div className="flex flex-col items-center gap-4">
+        <div className="grid grid-cols-2 gap-4">
           {tools.map((tool, i) => (
             <div key={tool.name} className="animate-[cardFadeIn_0.5s_ease-out_both]" style={{ animationDelay: `${i * 100}ms` }}>
               <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
@@ -63,28 +63,55 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Desktop 3x3 grid */}
-      <div className="hidden md:grid relative z-10" style={{ gridTemplateColumns: 'repeat(3, auto)', gridTemplateRows: 'repeat(3, auto)', gap: '40px 32px', justifyItems: 'center', alignItems: 'center' }}>
-        {/* Row 1 */}
-        {topRow.map((tool, i) => (
-          <div key={tool.name} className="animate-[cardFadeIn_0.5s_ease-out_both]" style={{ animationDelay: `${i * 100}ms` }}>
-            <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
-          </div>
-        ))}
+      {/* Desktop orbital layout */}
+      <div
+        className="hidden md:block relative z-10"
+        style={{ width: CONTAINER_SIZE, height: CONTAINER_SIZE }}
+      >
+        {/* Dashed orbit ring */}
+        <svg
+          className="absolute inset-0 pointer-events-none animate-[orbitSpin_60s_linear_infinite] motion-reduce:animate-none"
+          width={CONTAINER_SIZE}
+          height={CONTAINER_SIZE}
+          viewBox={`0 0 ${CONTAINER_SIZE} ${CONTAINER_SIZE}`}
+        >
+          <circle
+            cx={CONTAINER_SIZE / 2}
+            cy={CONTAINER_SIZE / 2}
+            r={ORBIT_RADIUS}
+            fill="none"
+            stroke="#1B2A4A"
+            strokeWidth="1.5"
+            strokeDasharray="4 6"
+            opacity="0.4"
+          />
+        </svg>
 
-        {/* Row 2: empty — logo — empty */}
-        <div />
-        <div className="flex items-center justify-center">
+        {/* Central logo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
-        <div />
 
-        {/* Row 3 */}
-        {bottomRow.map((tool, i) => (
-          <div key={tool.name} className="animate-[cardFadeIn_0.5s_ease-out_both]" style={{ animationDelay: `${(i + 3) * 100}ms` }}>
-            <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
-          </div>
-        ))}
+        {/* Orbital cards */}
+        {tools.map((tool, i) => {
+          const rad = (tool.angle * Math.PI) / 180;
+          const x = Math.cos(rad) * ORBIT_RADIUS;
+          const y = Math.sin(rad) * ORBIT_RADIUS;
+          return (
+            <div
+              key={tool.name}
+              className="absolute animate-[cardFadeIn_0.5s_ease-out_both]"
+              style={{
+                top: "50%",
+                left: "50%",
+                transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                animationDelay: `${i * 100}ms`,
+              }}
+            >
+              <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
+            </div>
+          );
+        })}
       </div>
 
       <footer className="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400 z-10">
@@ -97,37 +124,26 @@ const Index = () => {
 };
 
 const CenterHub = ({ onClick }: { onClick: () => void }) => (
-  <div className="relative flex items-center justify-center">
-    {/* Halo — perfect circle */}
-    <div
-      className="absolute rounded-full bg-[#5BC5A7]/[0.08] animate-[haloPulse_4s_ease-in-out_infinite] pointer-events-none"
-      style={{ width: 260, height: 260, aspectRatio: '1 / 1' }}
-    />
-    <button
-      onClick={onClick}
-      className="relative flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none z-10"
+  <button
+    onClick={onClick}
+    className="relative flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
+  >
+    <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
+      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[160px] h-[160px] object-contain" />
+    </div>
+    <h2
+      className="uppercase text-[#1B2A4A] leading-none mt-3"
+      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 900, fontSize: 52, letterSpacing: "-1px" }}
     >
-      <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
-        <img
-          src={logoIcon}
-          alt="NEXO SAÚDE"
-          className="w-[120px] h-[120px] object-contain"
-        />
-      </div>
-      <h2
-        className="uppercase text-[#1B2A4A] leading-none"
-        style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 900, fontSize: 36, letterSpacing: "-1px" }}
-      >
-        NEXO
-      </h2>
-      <p
-        className="uppercase text-[#1B2A4A] leading-none mt-1"
-        style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300, fontSize: 16, letterSpacing: "6px" }}
-      >
-        SAÚDE
-      </p>
-    </button>
-  </div>
+      NEXO
+    </h2>
+    <p
+      className="uppercase text-[#1B2A4A] leading-none mt-1"
+      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300, fontSize: 22, letterSpacing: "8px" }}
+    >
+      SAÚDE
+    </p>
+  </button>
 );
 
 const CardWithTooltip = ({ tool, onClick }: { tool: typeof tools[0]; onClick: () => void }) => (
