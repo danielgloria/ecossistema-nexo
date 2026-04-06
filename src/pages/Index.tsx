@@ -8,7 +8,7 @@ import {
   TooltipProvider,
 } from "@/components/ui/tooltip";
 import DotGridBackground from "@/components/DotGridBackground";
-import NetworkSphere from "@/components/NetworkSphere";
+import logoIcon from "@/assets/logo-nexo-icon.png";
 import ToolCard from "@/components/ToolCard";
 import EcosystemModal from "@/components/EcosystemModal";
 
