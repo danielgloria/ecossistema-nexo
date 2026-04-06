@@ -64,6 +64,14 @@ const Index = () => {
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
+        {/* Tagline */}
+        <div
+          className="absolute pointer-events-none text-center"
+          style={{ top: 'calc(50% + 130px)', left: '50%', transform: 'translateX(-50%)', width: 280, fontSize: 13, fontWeight: 400, color: '#5A6878', lineHeight: 1.5, zIndex: 2 }}
+        >
+          O ecossistema onde análises precisas geram decisões de excelência.
+        </div>
+
         {/* Orbital cards */}
         {tools.map((tool, i) => (
           <div
