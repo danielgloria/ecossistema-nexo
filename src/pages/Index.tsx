@@ -101,6 +101,8 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
       <img src={logoIcon} alt="NEXO SAÚDE" className="w-[240px] h-[240px] object-contain block mx-auto" />
     </div>
+    <h2 className="uppercase text-[#1B2A4A] leading-none mt-5 text-center" style={{ fontWeight: 900, fontSize: 84, letterSpacing: "-2px" }}>NEXO</h2>
+    <p className="uppercase text-[#1B2A4A] leading-none mt-2 text-center" style={{ fontWeight: 300, fontSize: 32, letterSpacing: "14px" }}>SAÚDE</p>
   </button>
 );
 
