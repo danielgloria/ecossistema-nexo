@@ -99,7 +99,7 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     className="flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
   >
     <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
-      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[200px] h-[200px] object-contain block mx-auto" />
+      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[240px] h-[240px] object-contain block mx-auto" />
     </div>
     <h2 className="uppercase text-[#1B2A4A] leading-none mt-4 text-center" style={{ fontWeight: 900, fontSize: 64, letterSpacing: "-1px" }}>NEXO</h2>
     <p className="uppercase text-[#1B2A4A] leading-none mt-1.5 text-center" style={{ fontWeight: 300, fontSize: 26, letterSpacing: "10px" }}>SAÚDE</p>
