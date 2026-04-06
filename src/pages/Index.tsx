@@ -20,7 +20,7 @@ const tools = [
   { name: "NEXO TRILHA DE ATENDIMENTO", icon: <Workflow size={36} />, status: "coming_soon" as const, url: "" },
 ];
 
-const RADIUS = 280;
+const RADIUS = 250;
 const angleOffsets = [-90, -30, 30, 90, 150, 210];
 
 const Index = () => {
@@ -37,8 +37,9 @@ const Index = () => {
       <TooltipTrigger asChild>
         <button
           onClick={() => setEcosystemOpen(true)}
-          className="flex flex-col items-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
+          className="relative flex flex-col items-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
         >
+          <div className="absolute w-96 h-96 bg-[#52c49c]/10 blur-3xl rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           <NetworkSphere />
           <h1 className="text-5xl font-extrabold uppercase text-primary tracking-tight">NEXO</h1>
           <p className="text-2xl font-normal uppercase text-primary tracking-[0.25em]">SAÚDE</p>
