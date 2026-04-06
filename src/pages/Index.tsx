@@ -38,11 +38,6 @@ const Index = () => {
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <DotGridBackground />
 
-      {/* Headline */}
-      <div className="relative z-10 text-center mb-8">
-        <h1 className="text-[28px] font-bold text-[#1B2A4A]">Ecossistema NEXO SAÚDE</h1>
-        <p className="text-[16px] text-[#5A6878] mt-2 italic font-normal">Inteligência conectada para o cuidado em saúde.</p>
-      </div>
 
       {/* Mobile layout */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 md:hidden">
