@@ -32,7 +32,10 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
       <div className="text-[#1B2A4A] transition-colors duration-300 group-hover:text-[#5BC5A7] [&_svg]:stroke-current [&_svg]:transition-colors [&_svg]:duration-300">
         {icon}
       </div>
-      <span className="text-xs font-bold uppercase tracking-wide text-primary text-center leading-tight">
+      <span
+        className="text-[13px] font-bold uppercase text-primary text-center leading-tight"
+        style={{ fontFamily: "'Montserrat', sans-serif", letterSpacing: "1px" }}
+      >
         {name}
       </span>
       {!isActive && (
