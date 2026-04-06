@@ -100,6 +100,9 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     </div>
     <h2 className="uppercase text-[#1B2A4A] leading-none mt-4 text-center" style={{ fontWeight: 900, fontSize: 64, letterSpacing: "-1px" }}>NEXO</h2>
     <p className="uppercase text-[#1B2A4A] leading-none mt-1.5 text-center" style={{ fontWeight: 300, fontSize: 26, letterSpacing: "10px" }}>SAÚDE</p>
+    <p className="text-sm text-slate-500 tracking-widest text-center mt-4 max-w-[280px] leading-relaxed" style={{ fontWeight: 300 }}>
+      O ecossistema onde dados precisos geram excelência clínica.
+    </p>
   </button>
 );
 
