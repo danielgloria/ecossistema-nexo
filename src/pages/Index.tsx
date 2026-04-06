@@ -64,6 +64,14 @@ const Index = () => {
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
+        {/* Tagline */}
+        <div
+          className="absolute pointer-events-none text-center"
+          style={{ top: 'calc(50% + 130px)', left: '50%', transform: 'translateX(-50%)', width: 280, fontSize: 13, fontWeight: 400, color: '#5A6878', lineHeight: 1.5, zIndex: 2 }}
+        >
+          O ecossistema onde análises precisas geram decisões de excelência.
+        </div>
+
         {/* Orbital cards */}
         {tools.map((tool, i) => (
           <div
@@ -95,9 +103,6 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     </div>
     <h2 className="uppercase text-[#1B2A4A] leading-none mt-4 text-center" style={{ fontWeight: 900, fontSize: 64, letterSpacing: "-1px" }}>NEXO</h2>
     <p className="uppercase text-[#1B2A4A] leading-none mt-1.5 text-center" style={{ fontWeight: 300, fontSize: 26, letterSpacing: "10px" }}>SAÚDE</p>
-    <p className="text-sm text-slate-500 tracking-widest text-center mt-4 max-w-[280px] leading-relaxed" style={{ fontWeight: 300 }}>
-      O ecossistema onde análises precisas geram decisões de excelência.
-    </p>
   </button>
 );
 
