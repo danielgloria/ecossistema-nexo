@@ -14,7 +14,7 @@ const ToolCard = ({ name, icon, status, onClick }: ToolCardProps) => {
     <button
       onClick={isActive ? onClick : onClick}
       className={cn(
-        "relative flex flex-col items-center gap-2 rounded-2xl bg-white p-5 w-[160px]",
+        "relative flex flex-col items-center gap-3 rounded-2xl bg-white min-w-[200px] min-h-[140px] p-6",
         "shadow-[0_2px_8px_0_rgba(30,41,59,0.18)] border border-slate-100",
         "transition-all duration-300 group",
         isActive && [
