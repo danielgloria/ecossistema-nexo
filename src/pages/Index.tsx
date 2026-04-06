@@ -15,16 +15,13 @@ import EcosystemModal from "@/components/EcosystemModal";
 const iconProps = { size: 40, strokeWidth: 1.75, color: "#1B2A4A" };
 
 const tools = [
-  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://www.nexosaude.med.br/", tooltip: "Documentos institucionais", angle: 270 },
-  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada", angle: 330 },
-  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", angle: 30 },
-  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", angle: 90 },
-  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)", angle: 150 },
-  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", angle: 210 },
+  { name: "NEXO REDATOR", icon: <PenTool {...iconProps} />, status: "active" as const, url: "https://www.nexosaude.med.br/", tooltip: "Documentos institucionais", top: 60, left: 260 },
+  { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada", top: 200, left: 502 },
+  { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", top: 480, left: 502 },
+  { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", top: 620, left: 260 },
+  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)", top: 480, left: 18 },
+  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", top: 200, left: 18 },
 ];
-
-const ORBIT_RADIUS = 280;
-const CONTAINER_SIZE = 700;
 
 const Index = () => {
   const [ecosystemOpen, setEcosystemOpen] = useState(false);
@@ -43,20 +40,16 @@ const Index = () => {
 
       {/* Headline */}
       <div className="relative z-10 text-center mb-8">
-        <h1 className="text-[28px] font-bold text-[#1B2A4A]">
-          Ecossistema NEXO SAÚDE
-        </h1>
-        <p className="text-[16px] text-[#5A6878] mt-2 italic font-normal">
-          Inteligência conectada para o cuidado em saúde.
-        </p>
+        <h1 className="text-[28px] font-bold text-[#1B2A4A]">Ecossistema NEXO SAÚDE</h1>
+        <p className="text-[16px] text-[#5A6878] mt-2 italic font-normal">Inteligência conectada para o cuidado em saúde.</p>
       </div>
 
       {/* Mobile layout */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 md:hidden">
         <CenterHub onClick={() => setEcosystemOpen(true)} />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col items-center gap-4 w-full">
           {tools.map((tool, i) => (
-            <div key={tool.name} className="animate-[cardFadeIn_0.5s_ease-out_both]" style={{ animationDelay: `${i * 100}ms` }}>
+            <div key={tool.name} className="w-[90%] max-w-[320px] animate-[cardFadeIn_0.5s_ease-out_both]" style={{ animationDelay: `${i * 100}ms` }}>
               <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
             </div>
           ))}
@@ -64,54 +57,30 @@ const Index = () => {
       </div>
 
       {/* Desktop orbital layout */}
-      <div
-        className="hidden md:block relative z-10"
-        style={{ width: CONTAINER_SIZE, height: CONTAINER_SIZE }}
-      >
+      <div className="hidden md:block relative z-10" style={{ width: 700, height: 700 }}>
         {/* Dashed orbit ring */}
         <svg
           className="absolute inset-0 pointer-events-none animate-[orbitSpin_60s_linear_infinite] motion-reduce:animate-none"
-          width={CONTAINER_SIZE}
-          height={CONTAINER_SIZE}
-          viewBox={`0 0 ${CONTAINER_SIZE} ${CONTAINER_SIZE}`}
+          width="700" height="700" viewBox="0 0 700 700"
         >
-          <circle
-            cx={CONTAINER_SIZE / 2}
-            cy={CONTAINER_SIZE / 2}
-            r={ORBIT_RADIUS}
-            fill="none"
-            stroke="#1B2A4A"
-            strokeWidth="1.5"
-            strokeDasharray="4 6"
-            opacity="0.4"
-          />
+          <circle cx="350" cy="350" r="280" fill="none" stroke="#1B2A4A" strokeWidth="1.5" strokeDasharray="4 6" opacity="0.4" />
         </svg>
 
         {/* Central logo */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute z-10" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 220, textAlign: 'center' }}>
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
         {/* Orbital cards */}
-        {tools.map((tool, i) => {
-          const rad = (tool.angle * Math.PI) / 180;
-          const x = Math.cos(rad) * ORBIT_RADIUS;
-          const y = Math.sin(rad) * ORBIT_RADIUS;
-          return (
-            <div
-              key={tool.name}
-              className="absolute animate-[cardFadeIn_0.5s_ease-out_both]"
-              style={{
-                top: "50%",
-                left: "50%",
-                transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                animationDelay: `${i * 100}ms`,
-              }}
-            >
-              <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
-            </div>
-          );
-        })}
+        {tools.map((tool, i) => (
+          <div
+            key={tool.name}
+            className="absolute z-[3] animate-[cardFadeIn_0.5s_ease-out_both]"
+            style={{ top: tool.top, left: tool.left, width: 180, animationDelay: `${i * 100}ms` }}
+          >
+            <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
+          </div>
+        ))}
       </div>
 
       <footer className="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400 z-10">
@@ -126,23 +95,13 @@ const Index = () => {
 const CenterHub = ({ onClick }: { onClick: () => void }) => (
   <button
     onClick={onClick}
-    className="relative flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
+    className="flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
   >
     <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
       <img src={logoIcon} alt="NEXO SAÚDE" className="w-[160px] h-[160px] object-contain" />
     </div>
-    <h2
-      className="uppercase text-[#1B2A4A] leading-none mt-3"
-      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 900, fontSize: 52, letterSpacing: "-1px" }}
-    >
-      NEXO
-    </h2>
-    <p
-      className="uppercase text-[#1B2A4A] leading-none mt-1"
-      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300, fontSize: 22, letterSpacing: "8px" }}
-    >
-      SAÚDE
-    </p>
+    <h2 className="uppercase text-[#1B2A4A] leading-none mt-3" style={{ fontWeight: 900, fontSize: 52, letterSpacing: "-1px" }}>NEXO</h2>
+    <p className="uppercase text-[#1B2A4A] leading-none mt-1" style={{ fontWeight: 300, fontSize: 22, letterSpacing: "8px" }}>SAÚDE</p>
   </button>
 );
 
