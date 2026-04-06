@@ -109,7 +109,7 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     >
       <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
         <img
-          src="/assets/logo-nexo-icon.png"
+          src={logoIcon}
           alt="NEXO SAÚDE"
           className="w-[120px] h-[120px] object-contain"
         />
