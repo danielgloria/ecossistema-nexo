@@ -20,7 +20,7 @@ const tools = [
   { name: "NEXO TRILHA DE ATENDIMENTO", icon: <Workflow size={36} />, status: "coming_soon" as const, url: "" },
 ];
 
-const RADIUS = 280;
+const RADIUS = 250;
 const angleOffsets = [-90, -30, 30, 90, 150, 210];
 
 const Index = () => {
