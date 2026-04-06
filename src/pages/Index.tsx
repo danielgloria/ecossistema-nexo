@@ -60,7 +60,7 @@ const Index = () => {
         />
 
         {/* Central logo */}
-        <div className="absolute z-10 flex flex-col items-center justify-center" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%) translateY(-50px)', width: 420, textAlign: 'center' as const }}>
+        <div className="absolute z-10 flex flex-col items-center justify-center" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 320, textAlign: 'center' as const }}>
           <CenterHub onClick={() => setEcosystemOpen(true)} />
         </div>
 
@@ -99,10 +99,8 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     className="flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
   >
     <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
-      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[240px] h-[240px] object-contain block mx-auto" />
+      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[280px] h-[280px] object-contain block mx-auto" />
     </div>
-    <h2 className="uppercase text-[#1B2A4A] leading-none mt-5 text-center" style={{ fontWeight: 900, fontSize: 84, letterSpacing: "-2px" }}>NEXO</h2>
-    <p className="uppercase text-[#1B2A4A] leading-none mt-2 text-center" style={{ fontWeight: 300, fontSize: 32, letterSpacing: "14px" }}>SAÚDE</p>
   </button>
 );
 
