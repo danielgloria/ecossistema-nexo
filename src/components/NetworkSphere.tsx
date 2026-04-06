@@ -5,7 +5,7 @@ const NetworkSphere = () => {
     <img
       src={logoIcon}
       alt="NEXO SAÚDE - Rede de conexões"
-      className="w-32 h-32 md:w-40 md:h-40 object-contain"
+      className="w-40 h-40 md:w-[200px] md:h-[200px] object-contain"
     />
   );
 };
