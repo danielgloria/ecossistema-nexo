@@ -55,7 +55,7 @@ const Index = () => {
   );
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <DotGridBackground />
 
       {/* Mobile layout */}
@@ -93,6 +93,10 @@ const Index = () => {
           );
         })}
       </div>
+
+      <footer className="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400 z-10">
+        Nexo Saúde © 2026 • Ecossistema Integrado
+      </footer>
 
       <EcosystemModal open={ecosystemOpen} onOpenChange={setEcosystemOpen} />
     </div>
