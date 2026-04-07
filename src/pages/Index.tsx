@@ -35,9 +35,8 @@ const Index = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+    <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <DotGridBackground />
-
 
       {/* Mobile layout */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 md:hidden">
