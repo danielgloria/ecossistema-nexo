@@ -39,7 +39,7 @@ const EcosystemModal = ({ open, onOpenChange }: EcosystemModalProps) => {
             className="font-extrabold text-[32px] leading-[1.25] mb-6"
             style={{ color: '#1B2A4A', letterSpacing: '-0.5px' }}
           >
-            Inteligência conectada para o{' '}
+            Inteligência conectada para o<br />
             <span style={{ color: '#5BC5A7' }}>cuidado em saúde</span>
           </h2>
 
@@ -48,10 +48,9 @@ const EcosystemModal = ({ open, onOpenChange }: EcosystemModalProps) => {
             className="text-[15px] font-normal leading-[1.7] mb-9"
             style={{ color: '#5A6878' }}
           >
-            <strong style={{ color: '#1B2A4A', fontWeight: 700 }}>NEXO SAÚDE</strong> é o
-            ecossistema integrado que transforma dados clínicos em decisões de excelência.
-            Da redação institucional à governança da segurança do paciente — uma única
-            plataforma para a maturidade assistencial.
+            <strong style={{ color: '#1B2A4A', fontWeight: 700 }}>NEXO SAÚDE</strong> é um
+            ecossistema integrado que conecta dados, processos e pessoas em uma única
+            plataforma — transformando a complexidade hospitalar em decisões clínicas de excelência.
           </p>
 
           {/* Pillars */}
