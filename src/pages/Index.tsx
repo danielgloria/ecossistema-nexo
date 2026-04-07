@@ -19,7 +19,7 @@ const tools = [
   { name: "NEXO SBAR", icon: <ShieldCheck {...iconProps} />, status: "active" as const, url: "https://sbar.nexosaude.med.br/", tooltip: "Passagem de caso estruturada", top: 200, left: 680 },
   { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", top: 570, left: 680 },
   { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", top: 755, left: 360 },
-  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Assistência de enfermagem (em breve)", top: 570, left: 40 },
+  { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "active" as const, url: "https://cuidar.nexosaude.med.br/", tooltip: "Assistência de enfermagem", top: 570, left: 40 },
   { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", top: 200, left: 40 },
 ];
 
