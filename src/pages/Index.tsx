@@ -99,7 +99,7 @@ const CenterHub = ({ onClick }: { onClick: () => void }) => (
     className="flex flex-col items-center gap-0 cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none"
   >
     <div className="animate-[centralPulse_4s_ease-in-out_infinite]">
-      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[500px] h-[500px] object-contain block mx-auto" />
+      <img src={logoIcon} alt="NEXO SAÚDE" className="w-[500px] h-[500px] block object-scale-down px-[88px] py-[7px] font-sans text-justify font-bold text-sm pr-[66px] pt-[50px] pb-[7px] mx-[8px] rounded-none shadow-none opacity-100" />
     </div>
   </button>
 );
