@@ -35,9 +35,8 @@ const Index = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+    <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <DotGridBackground />
-
 
       {/* Mobile layout */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 md:hidden">
@@ -52,7 +51,8 @@ const Index = () => {
       </div>
 
       {/* Desktop orbital layout */}
-      <div className="hidden md:block relative z-10" style={{ width: 900, height: 900, margin: '40px auto 80px auto' }}>
+      <div className="hidden md:flex items-center justify-center relative z-10 flex-1 w-full">
+        <div className="relative orbital-container" style={{ width: 900, height: 900 }}>
         {/* Dashed orbit ring */}
         <div
           className="absolute rounded-full pointer-events-none"
@@ -75,9 +75,10 @@ const Index = () => {
             <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
           </div>
         ))}
+        </div>
       </div>
 
-      <footer className="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400 z-10">
+      <footer className="relative py-3 text-center text-xs text-slate-400 z-10 shrink-0">
         Nexo Saúde © 2026 • Ecossistema Integrado
       </footer>
 

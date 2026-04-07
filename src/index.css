@@ -90,5 +90,35 @@
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+/* Viewport-adaptive orbital scaling */
+.orbital-container {
+  transform-origin: center center;
+}
+
+@media (max-height: 1000px) {
+  .orbital-container {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-height: 900px) {
+  .orbital-container {
+    transform: scale(0.75);
+  }
+}
+
+@media (max-height: 800px) {
+  .orbital-container {
+    transform: scale(0.65);
+  }
+}
+
+@media (max-height: 700px) {
+  .orbital-container {
+    transform: scale(0.55);
   }
 }
