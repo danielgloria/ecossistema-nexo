@@ -75,9 +75,10 @@ const Index = () => {
             <CardWithTooltip tool={tool} onClick={() => handleClick(tool)} />
           </div>
         ))}
+        </div>
       </div>
 
-      <footer className="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400 z-10">
+      <footer className="relative py-3 text-center text-xs text-slate-400 z-10 shrink-0">
         Nexo Saúde © 2026 • Ecossistema Integrado
       </footer>
 
