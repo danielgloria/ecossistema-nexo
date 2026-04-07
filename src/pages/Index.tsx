@@ -20,7 +20,7 @@ const tools = [
   { name: "NEXO LÍDER", icon: <Users {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Gestão de equipes (em breve)", top: 570, left: 680 },
   { name: "NEXO CONFORMIDADE", icon: <ScrollText {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Normas e regulação (em breve)", top: 755, left: 360 },
   { name: "NEXO CUIDAR", icon: <HandHeart {...iconProps} />, status: "active" as const, url: "https://cuidar.nexosaude.med.br/", tooltip: "Assistência de enfermagem", top: 570, left: 40 },
-  { name: "NEXO VIGILÂNCIA", icon: <Eye {...iconProps} />, status: "coming_soon" as const, url: "", tooltip: "Monitoramento e segurança (em breve)", top: 200, left: 40 },
+  { name: "NEXO ALTA SEGURA", icon: <Eye {...iconProps} />, status: "active" as const, url: "https://alta.nexosaude.med.br/", tooltip: "Alta hospitalar segura", top: 200, left: 40 },
 ];
 
 const Index = () => {
