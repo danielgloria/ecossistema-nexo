@@ -51,7 +51,8 @@ const Index = () => {
       </div>
 
       {/* Desktop orbital layout */}
-      <div className="hidden md:block relative z-10" style={{ width: 900, height: 900, margin: '40px auto 80px auto' }}>
+      <div className="hidden md:flex items-center justify-center relative z-10 flex-1 w-full">
+        <div className="relative orbital-container" style={{ width: 900, height: 900 }}>
         {/* Dashed orbit ring */}
         <div
           className="absolute rounded-full pointer-events-none"
